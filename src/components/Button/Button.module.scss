@@ -1,0 +1,24 @@
+.default {
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    color: black;
+    &:hover {
+        background: var(--button-default-bg-hover);
+    }
+}
+
+.primary {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    color: white;
+    &:hover {
+        background: var(--button-primary-bg-hover);
+    }
+}
+
+.btn-style {
+    font-weight: 700;
+    border-radius: 4px;
+    min-width: 100px;
+    min-height: 36px;
+}
