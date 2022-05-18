@@ -1,16 +1,63 @@
 import classNames from 'classnames/bind';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
-function Button({ children, styleBtn = 'default', padding }) {
-    const stylesBtn = ['default', 'primary'];
-    if (!stylesBtn.includes(styleBtn)) {
-        styleBtn = 'default';
+
+const cx = classNames.bind(styles);
+
+function Button({
+    Component = 'button',
+    typeBtn = 'primary',
+    size = 'medium',
+    classNames,
+    disable = false,
+    rounded = false,
+    children,
+    ...props
+}) {
+    const globalProps = {
+        ...props,
+    };
+    //Button Element
+
+    const ElmButtons = ['a', 'button', Link];
+
+    if (!ElmButtons.includes(Component)) {
+        Component = 'button';
     }
-    const cx = classNames.bind(styles);
+
+    //Style Button
+    const typesBtn = ['primary', 'outline', 'text', 'shadow'];
+
+    if (!typesBtn.includes(typeBtn)) {
+        typeBtn = 'primary';
+    }
+
+    //Size button
+    const sizes = ['medium', 'large', 'small'];
+    if (!sizes.includes(size)) {
+        size = 'primary';
+    }
+    //Check disable and remove event listener
+    if (disable) {
+        Object.keys(globalProps).forEach((key) => {
+            if (key.startsWith('on') && typeof globalProps[key] === 'function') {
+                delete globalProps[key];
+            }
+        });
+    }
+
+    const classes = cx('wrapper', {
+        [typeBtn]: typeBtn,
+        [size]: size,
+        [classNames]: classNames,
+        rounded,
+        disable,
+    });
     return (
-        <button className={cx(styleBtn, 'clear-btn', 'btn-style')} style={{ padding: padding }}>
-            {children}
-        </button>
+        <Component className={classes} {...globalProps}>
+            <div>{children}</div>
+        </Component>
     );
 }
 

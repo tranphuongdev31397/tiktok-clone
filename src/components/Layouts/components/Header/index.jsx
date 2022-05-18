@@ -5,6 +5,7 @@ import Logo from '~/components/Logo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
+import { Link } from 'react-router-dom';
 function Header() {
     const cx = classNames.bind(styles);
     return (
@@ -26,8 +27,10 @@ function Header() {
                     </button>
                 </form>
                 <div className={cx('action')}>
-                    <a className="link">Upload</a>
-                    <Button padding={'6px 8px'} styleBtn={'primary'}>
+                    <Button typeBtn={'text'} Component={Link} to="/upload" target="_blank">
+                        Upload
+                    </Button>
+                    <Button typeBtn={'primary'} Component="button">
                         Login
                     </Button>
 

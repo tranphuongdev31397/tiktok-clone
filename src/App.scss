@@ -4,12 +4,17 @@
 :root {
     //var app
     --primary: #fe2c55;
+    --black: #000;
+    --black-1: rgba(22, 24, 35, 0.75);
+    --white: #fff;
+
     //var header
     --header-height: 6rem;
     --header-search-width-input: 85%;
     //button
     --button-primary-bg-hover: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
-    --button-default-bg-hover: rgba(254, 44, 85, 0.06);
+    --button-outline-bg-hover: rgba(254, 44, 85, 0.06);
+    --button-shadow-bg-hover: rgba(22, 24, 35, 0.03);
 }
 * {
     box-sizing: border-box;
