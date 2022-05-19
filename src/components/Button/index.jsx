@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -9,9 +10,11 @@ function Button({
     Component = 'button',
     typeBtn = 'primary',
     size = 'medium',
+    placementIcon = 'left',
     classNames,
     disable = false,
     rounded = false,
+    icon = false,
     children,
     ...props
 }) {
@@ -34,9 +37,14 @@ function Button({
     }
 
     //Size button
-    const sizes = ['medium', 'large', 'small'];
+    const sizes = ['medium', 'large', 'small', 'none'];
     if (!sizes.includes(size)) {
         size = 'primary';
+    }
+    //Placement Icon
+    const placementIcons = ['left', 'right'];
+    if (!placementIcons.includes(placementIcon)) {
+        placementIcon = 'left';
     }
     //Check disable and remove event listener
     if (disable) {
@@ -56,7 +64,19 @@ function Button({
     });
     return (
         <Component className={classes} {...globalProps}>
-            <div>{children}</div>
+            <div>
+                {icon && placementIcon === 'left' && (
+                    <span className={cx('icon')}>
+                        <FontAwesomeIcon icon={icon} />
+                    </span>
+                )}
+                <span className={cx('content')}>{children}</span>
+                {icon && placementIcon === 'right' && (
+                    <span className={cx('icon')}>
+                        <FontAwesomeIcon icon={icon} />
+                    </span>
+                )}
+            </div>
         </Component>
     );
 }

@@ -69,3 +69,12 @@
     min-width: 168px;
     min-height: 48px;
 }
+.none {
+    min-width: auto;
+    min-height: auto;
+}
+//icon
+.icon + .content,
+.content + .icon {
+    padding-left: 10px;
+}
