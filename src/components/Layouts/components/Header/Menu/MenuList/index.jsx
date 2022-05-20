@@ -15,7 +15,7 @@ function MenuList({ setStep }) {
             icon: faEarthAsia,
             component: 'a',
             props: {
-                onClick: () => setStep(2),
+                onClick: () => setStep({ step: 2, type: 'leagues' }),
             },
         },
         {
