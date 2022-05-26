@@ -2,14 +2,22 @@ import React from 'react';
 
 import classNames from 'classnames/bind';
 import styles from './MenuList.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEarthAsia, faKeyboard, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+    faArrowRightFromBracket,
+    faEarthAsia,
+    faGear,
+    faKeyboard,
+    faQuestionCircle,
+} from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
 import { Link } from 'react-router-dom';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 const cx = classNames.bind(styles);
 function MenuList({ setStep }) {
-    const menuList = [
+    const currentUser = true;
+    const defaultMenuList = [
         {
             title: 'English',
             icon: faEarthAsia,
@@ -33,6 +41,38 @@ function MenuList({ setStep }) {
             props: {},
         },
     ];
+    const userMenuList = [
+        {
+            title: 'View Profile',
+            icon: faUser,
+            component: Link,
+            props: {
+                to: '/profile',
+            },
+        },
+        {
+            title: 'Get Coins',
+            icon: faTiktok,
+            component: Link,
+            props: {
+                to: '/feedback',
+            },
+        },
+        {
+            title: 'Settings',
+            icon: faGear,
+            component: Link,
+            props: {
+                to: '/setting',
+            },
+        },
+    ];
+    let menuList = defaultMenuList;
+
+    if (currentUser) {
+        menuList = [...userMenuList, ...defaultMenuList];
+    }
+
     return (
         <div className={cx('wrapper', 'menu__list')}>
             {menuList.map((item, idx) => {
@@ -49,6 +89,16 @@ function MenuList({ setStep }) {
                     </Button>
                 );
             })}
+            {currentUser && (
+                <Button
+                    typeBtn="text"
+                    Component="a"
+                    classNames={cx('menu__item', 'item__logout')}
+                    icon={faArrowRightFromBracket}
+                >
+                    Log out
+                </Button>
+            )}
         </div>
     );
 }
