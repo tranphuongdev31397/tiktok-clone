@@ -1,7 +1,38 @@
 .header {
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    height: var(--header-height);
     .inner {
-        background-color: aqua;
-        padding: 0.8rem 0;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
     }
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.action {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    & .currentAvatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+}
+
+.icon-ellipsis {
+    font-size: 20px;
+}
+.icon-button {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

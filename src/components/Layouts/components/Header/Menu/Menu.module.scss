@@ -1,0 +1,7 @@
+.menu__tippyBox {
+    width: fit-content;
+    & .action__menu-wrapper {
+        height: auto;
+        min-height: auto;
+    }
+}

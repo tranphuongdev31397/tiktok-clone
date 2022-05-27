@@ -1,0 +1,20 @@
+.menu__list {
+    display: flex;
+    padding: 10px 0;
+    flex-direction: column;
+    text-align: left;
+    & .menu__item {
+        justify-content: start;
+
+        padding: 10px 16px;
+        align-items: center;
+        &:hover {
+            text-decoration: none;
+            background: rgba(22, 24, 35, 0.03);
+        }
+    }
+    .item__logout {
+        border-top: 1px solid rgba(22, 24, 35, 0.14);
+        border-radius: 0;
+    }
+}

@@ -1,9 +1,44 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
+    //var app
     --primary: #fe2c55;
+    --black: #000;
+    --black-1: rgba(22, 24, 35, 0.75);
+    --white: #fff;
+
+    //var header
+    --header-height: 6rem;
+    --header-search-width-input: 85%;
+    //button
+    --button-primary-bg-hover: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+    --button-outline-bg-hover: rgba(254, 44, 85, 0.06);
+    --button-shadow-bg-hover: rgba(22, 24, 35, 0.03);
+
+    //text-color
+    --text-color-primary: rgb(22, 24, 35);
+    --text-color-thin: rgba(22, 24, 35, 0.75);
 }
+
+//FONTS
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
+    font-weight: 400;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/ProximaNova-Semibold.woff2');
+    font-weight: 600;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Bold.woff');
+    font-weight: 700;
+}
+
+//END FONTS
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -13,7 +48,7 @@ html {
     font-size: 62.5%;
 }
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'ProximaNova', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
@@ -22,5 +57,31 @@ body {
 .container {
     width: 100%;
     max-width: 1150px;
+    padding: 0 20px;
     margin: 0 auto;
+}
+
+.clear-btn {
+    outline: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.link {
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.h-max {
+    height: 100%;
 }
