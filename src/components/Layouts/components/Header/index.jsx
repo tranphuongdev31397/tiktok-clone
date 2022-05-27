@@ -11,6 +11,7 @@ import Button from '~/components/Button';
 import Menu from './Menu';
 import Search from '../Search';
 import Image from '~/components/Image';
+import routesConfig from '~/config/routes';
 
 function Header() {
     const cx = classNames.bind(styles);
@@ -19,7 +20,7 @@ function Header() {
         <header className={cx('header')}>
             <div className={cx('inner', 'container')}>
                 <div className={cx('logo')}>
-                    <Link to="/" className="flex-center">
+                    <Link to={routesConfig.home} className="flex-center">
                         <Logo styles={{ width: 118, height: 42 }} />
                     </Link>
                 </div>
