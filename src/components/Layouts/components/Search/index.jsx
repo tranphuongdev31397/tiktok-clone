@@ -9,6 +9,8 @@ import Tippy from '@tippyjs/react/headless';
 import TippyWrapper from '~/components/TippyWrapper';
 import AccountItem from '~/components/AccountItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { userAPI } from '~/apis/userAPI';
+import useDebounce from '~/hooks/useDebounce';
 
 const cx = classNames.bind(styles);
 function Search() {
@@ -17,12 +19,33 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
 
     const [isFocus, setIsFocus] = useState(true);
+    const [loading, setLoading] = useState(false);
     const inputRef = useRef();
+
+    let latestValue = useDebounce(searchValue);
+
+    //Call API functions
+    const fetchSearchUser = async (searchString) => {
+        const response = await userAPI.searchUser(searchString);
+        setLoading(false);
+        setSearchResult(response.data);
+    };
+    //End Call API function
     useEffect(() => {
-        setTimeout(() => {
+        if (!latestValue.trim()) {
             setSearchResult([]);
-        }, 0);
-    }, []);
+            return;
+        }
+
+        try {
+            setLoading(true);
+
+            fetchSearchUser(latestValue);
+        } catch (err) {
+            console.log(err);
+            setLoading(false);
+        }
+    }, [latestValue]);
 
     const handleOnChange = (e) => {
         setSearchValue(e.target.value);
@@ -41,9 +64,9 @@ function Search() {
                         <div className={cx('account__container')}>
                             <h4 className={cx('account__title')}>Accounts</h4>
                             <div className={cx('account__box')}>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
+                                {searchResult.map((result) => {
+                                    return <AccountItem key={result.id} user={result} />;
+                                })}
                             </div>
                         </div>
                     </TippyWrapper>
@@ -64,14 +87,16 @@ function Search() {
                 <button className={cx('search__btn', 'clear-btn')}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
-                {!!searchValue && (
+                {!!searchValue && !loading && (
                     <button className={cx('search__action', 'clear-btn')} onClick={handleClearSearch}>
                         <FontAwesomeIcon icon={faXmark} />
                     </button>
                 )}
-                {/* <button className={cx('search__action', 'clear-btn')}>
-                    <FontAwesomeIcon icon={faSpinner} />
-                </button> */}
+                {loading && (
+                    <button className={cx('search__action', 'clear-btn', 'spinner')}>
+                        <FontAwesomeIcon icon={faSpinner} />
+                    </button>
+                )}
             </div>
         </Tippy>
     );

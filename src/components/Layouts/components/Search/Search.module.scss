@@ -50,6 +50,17 @@
         left: calc(var(--header-search-width-input) - 8%);
     }
 }
+.spinner {
+    animation: spinner 800ms infinite linear;
+}
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 .tippy-box,
 .search {
     width: 360px;
