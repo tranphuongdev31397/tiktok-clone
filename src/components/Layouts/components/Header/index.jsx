@@ -19,7 +19,9 @@ function Header() {
         <header className={cx('header')}>
             <div className={cx('inner', 'container')}>
                 <div className={cx('logo')}>
-                    <Logo styles={{ width: 118, height: 42 }} />
+                    <Link to="/" className="flex-center">
+                        <Logo styles={{ width: 118, height: 42 }} />
+                    </Link>
                 </div>
 
                 <Search />

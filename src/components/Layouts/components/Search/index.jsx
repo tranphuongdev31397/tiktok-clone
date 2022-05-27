@@ -46,8 +46,11 @@ function Search() {
             setLoading(false);
         }
     }, [latestValue]);
-
+    //Function local component
     const handleOnChange = (e) => {
+        const valueChange = e.target.value;
+        if (valueChange.startsWith(' ')) return;
+
         setSearchValue(e.target.value);
     };
     const handleClearSearch = () => {

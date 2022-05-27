@@ -7,7 +7,7 @@ import LeagueList from './LeagueList';
 import MenuList from './MenuList';
 
 const cx = classNames.bind(styles);
-function Menu({ children }) {
+function Menu({ children, hideOnClick = false }) {
     const [step, setStep] = useState({ step: 1, type: null });
     const renderMenu = () => {
         if (step.step === 1) {
@@ -35,6 +35,7 @@ function Menu({ children }) {
                 </div>
             )}
             onHide={() => setStep({ step: 1 })}
+            hideOnClick={hideOnClick}
         >
             {children}
         </Tippy>

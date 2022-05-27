@@ -67,7 +67,11 @@ body {
     border: none;
     cursor: pointer;
 }
-
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .link {
     font-weight: 700;
     text-decoration: none;
