@@ -8,5 +8,6 @@ import Upload from '~/pages/Upload';
 export const publicRoutes = [
     { path: routesConfig.home, element: Home },
     { path: routesConfig.following, element: Following },
+    { path: routesConfig.userDetail(), element: Following },
     { path: routesConfig.upload, element: Upload, layout: HeaderOnly },
 ];

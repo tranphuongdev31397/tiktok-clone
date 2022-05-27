@@ -13,6 +13,7 @@ import Button from '~/components/Button';
 import { Link } from 'react-router-dom';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
+import routesConfig from '~/config/routes';
 
 const cx = classNames.bind(styles);
 function MenuList({ setStep }) {
@@ -31,7 +32,7 @@ function MenuList({ setStep }) {
             icon: faQuestionCircle,
             component: Link,
             props: {
-                to: '/feedback',
+                to: routesConfig.feedback,
             },
         },
         {
@@ -47,7 +48,7 @@ function MenuList({ setStep }) {
             icon: faUser,
             component: Link,
             props: {
-                to: '/profile',
+                to: routesConfig.profile,
             },
         },
         {
@@ -55,7 +56,7 @@ function MenuList({ setStep }) {
             icon: faTiktok,
             component: Link,
             props: {
-                to: '/feedback',
+                to: routesConfig.coin,
             },
         },
         {
@@ -63,7 +64,7 @@ function MenuList({ setStep }) {
             icon: faGear,
             component: Link,
             props: {
-                to: '/setting',
+                to: routesConfig.setting,
             },
         },
     ];
