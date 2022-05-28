@@ -21,14 +21,14 @@
 .outline {
     background-color: transparent;
     border: 1px solid var(--primary);
-    color: var(--black-1);
+    color: var(--primary);
     &:hover {
         background: var(--button-outline-bg-hover);
     }
 }
 .shadow {
     background-color: var(--white);
-    border: 1px solid var(--black-1);
+    border: 1px solid rgba(22, 24, 35, 0.2);
     box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
     color: var(--black-1);
     &:hover {
@@ -77,4 +77,16 @@
 .icon + .content,
 .content + .icon {
     padding-left: 10px;
+}
+
+.box {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    &.center {
+        justify-content: center;
+    }
+    &.left {
+        justify-content: start;
+    }
 }
