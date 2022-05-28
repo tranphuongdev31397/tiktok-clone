@@ -12,10 +12,10 @@ import Menu from './Menu';
 import Search from '../Search';
 import Image from '~/components/Image';
 import routesConfig from '~/config/routes';
+import { currentUser } from '~/common/constant';
 
 function Header() {
     const cx = classNames.bind(styles);
-    const currentUser = true;
     return (
         <header className={cx('header')}>
             <div className={cx('inner', 'container')}>
@@ -33,7 +33,7 @@ function Header() {
                     </Button>
 
                     {!currentUser && (
-                        <Button typeBtn={'primary'} Component="button">
+                        <Button typeBtn={'primary'} Component="button" placementText="center">
                             Login
                         </Button>
                     )}

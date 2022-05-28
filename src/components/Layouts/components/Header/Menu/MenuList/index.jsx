@@ -14,10 +14,10 @@ import { Link } from 'react-router-dom';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 import routesConfig from '~/config/routes';
+import { currentUser } from '~/common/constant';
 
 const cx = classNames.bind(styles);
 function MenuList({ setStep }) {
-    const currentUser = true;
     const defaultMenuList = [
         {
             title: 'English',
