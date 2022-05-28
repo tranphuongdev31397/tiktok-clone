@@ -1,0 +1,78 @@
+.wrapper {
+    width: 100%;
+    overflow: auto;
+    max-height: 100vh;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align: left;
+
+    &__item {
+        text-align: left;
+        justify-content: start;
+        width: 100%;
+        text-decoration: none;
+        color: rgba(22, 24, 35, 1);
+        font-size: 1.8rem;
+        font-weight: 600;
+        padding: 10px;
+        height: 48px;
+        line-height: 25px;
+        &:hover {
+            background: rgba(22, 24, 35, 0.03);
+            text-decoration: none;
+        }
+        &.active {
+            color: var(--primary);
+        }
+    }
+}
+//Login Area
+.login__area {
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 1.6rem;
+    line-height: 22px;
+    .button__login {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+//Account Item
+.account__item {
+    height: 48px;
+    padding: 8px;
+}
+
+.toggle__show {
+    justify-content: start;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+//Discover
+
+.discover__btn {
+    width: fit-content;
+    max-width: 100%;
+    padding: 3px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.discover__btn + .discover__btn {
+    margin-right: 8px;
+}

@@ -11,6 +11,7 @@ function Button({
     typeBtn = 'primary',
     size = 'medium',
     placementIcon = 'left',
+    placementText = 'start',
     classNames,
     disable = false,
     rounded = false,
@@ -23,7 +24,7 @@ function Button({
     };
     //Button Element
 
-    const ElmButtons = ['a', 'button', Link];
+    const ElmButtons = ['a', 'button', Link, 'div', 'span', 'p'];
 
     if (!ElmButtons.includes(Component)) {
         Component = 'button';
@@ -64,13 +65,13 @@ function Button({
     });
     return (
         <Component className={classes} {...globalProps}>
-            <div>
+            <div className={cx('box', 'text-ellipsis', [placementText])}>
                 {icon && placementIcon === 'left' && (
                     <span className={cx('icon')}>
                         <FontAwesomeIcon icon={icon} />
                     </span>
                 )}
-                <span className={cx('content')}>{children}</span>
+                <span className={cx('content', 'text-ellipsis')}>{children}</span>
                 {icon && placementIcon === 'right' && (
                     <span className={cx('icon')}>
                         <FontAwesomeIcon icon={icon} />
