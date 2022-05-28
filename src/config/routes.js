@@ -6,7 +6,10 @@ const routesConfig = {
     feedback: '/feedback',
     setting: '/setting',
     coin: '/coin',
-    userDetail: (nickname = ':nickname') => `@${nickname}`,
+    live: '/live',
+    userDetail: (nickname = ':nickname') => `/@${nickname}`,
+    music: (title = ':title') => `/music/${title}`,
+    hashtag: (title = ':title') => `/hashtag/${title}`,
 };
 
 export default routesConfig;
