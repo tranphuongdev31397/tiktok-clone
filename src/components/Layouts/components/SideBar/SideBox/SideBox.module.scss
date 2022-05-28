@@ -1,0 +1,22 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 16px 0;
+}
+.border {
+    border-top: 1px solid var(--line-color);
+}
+.title {
+    color: var(--text-color-thin);
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    padding: 0 8px;
+}
+.custom__empty {
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0px 8px;
+}
