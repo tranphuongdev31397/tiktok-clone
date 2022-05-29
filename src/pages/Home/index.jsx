@@ -1,7 +1,12 @@
 import React from 'react';
+import VideoItem from '~/components/VideoItem';
 
 function Home() {
-    return <div>Home</div>;
+    return (
+        <div>
+            <VideoItem />
+        </div>
+    );
 }
 
 export default Home;

@@ -61,6 +61,7 @@ html {
 }
 body {
     font-family: 'ProximaNova', sans-serif;
+    font-weight: 400;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
@@ -83,6 +84,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.flex-start {
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 .link {
     font-weight: 700;

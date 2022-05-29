@@ -1,0 +1,57 @@
+.wrapper {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line-color);
+}
+
+.video__header {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    position: relative;
+    & .avatar {
+        width: 56px;
+        height: 56px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+    }
+    & .follow__button {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+}
+.link {
+    text-decoration: none;
+    color: var(--black);
+    height: fit-content;
+    width: auto;
+}
+.video__user-information {
+    text-decoration: none;
+    color: var(--black);
+    margin-right: 114px;
+    & .nickname {
+        font-family: SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+        font-size: 18px;
+        line-height: 25px;
+        font-weight: 700;
+        margin-right: 5px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    & .fullName {
+        font-weight: 400;
+        text-decoration: none;
+        font-size: 14px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.icon {
+    margin-right: 4px;
+}
