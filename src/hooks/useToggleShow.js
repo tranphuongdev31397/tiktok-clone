@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function useToggleShow(initialArr, initShow = false, defaultShow = 5) {
     const spliceArr = [...initialArr];
@@ -11,6 +11,7 @@ function useToggleShow(initialArr, initShow = false, defaultShow = 5) {
         } else {
             setLatestArr(spliceArr);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isShow, initialArr]);
     return [latestArr, isShow, setIsShow];
 }
