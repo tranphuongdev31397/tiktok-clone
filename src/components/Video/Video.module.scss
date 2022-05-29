@@ -31,9 +31,8 @@
     z-index: 10;
 }
 .slider-area {
-    opacity: 0;
     width: 80px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     border-radius: 999px;
@@ -43,9 +42,6 @@
     top: -30px;
     transform: translate(-50%, -50%) rotate(-90deg);
     padding: 8px;
-    &:hover {
-        opacity: 1;
-    }
 }
 .slider {
     z-index: 10;
@@ -80,7 +76,7 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
-    &:hover ~ .slider-area {
-        opacity: 1;
-    }
+}
+.volume:hover .slider-area {
+    display: flex;
 }
