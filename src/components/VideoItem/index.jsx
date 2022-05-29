@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMusic } from '@fortawesome/free-solid-svg-icons';
 import AccountDetail from '../AccountDetail';
 import Button from '../Button';
+import { videos } from '~/assets/videos';
+import Video from '../Video';
 
 const cx = classNames.bind(styles);
 function VideoItem({ className }) {
@@ -42,6 +44,9 @@ function VideoItem({ className }) {
                 <Button typeBtn="outline" size="small" placementText="center" classNames={cx('follow__button')}>
                     Follow
                 </Button>
+            </div>
+            <div className={cx('video__area')}>
+                <Video src={videos.errorVideo} autoPlay muted className={cx('video')} videoClass={cx('video')} />
             </div>
         </section>
     );
