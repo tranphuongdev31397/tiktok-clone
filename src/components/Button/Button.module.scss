@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    text-decoration: none;
     //rounded
     &.rounded {
         border-radius: 999px;
@@ -78,7 +79,9 @@
 .content + .icon {
     padding-left: 10px;
 }
-
+.content {
+    text-decoration: none;
+}
 .box {
     display: flex;
     width: 100%;

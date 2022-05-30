@@ -10,11 +10,11 @@ import classNames from 'classnames/bind';
 import styles from './AccountDetail.module.scss';
 import Tippy from '@tippyjs/react/headless';
 //Data
-import { fakeUser } from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import routesConfig from '~/config/routes';
+import { fakeUser } from '~/common/data';
 
 const cx = classNames.bind(styles);
 function AccountDetail({ children, user = fakeUser, className, typeBtn, hasBio = false }) {
