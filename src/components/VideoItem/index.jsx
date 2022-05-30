@@ -46,7 +46,14 @@ function VideoItem({ className }) {
                 </Button>
             </div>
             <div className={cx('video__area')}>
-                <Video src={videos.errorVideo} autoPlay muted className={cx('video')} videoClass={cx('video')} />
+                <Video
+                    src={videos.errorVideo}
+                    placementVolBar={'top'}
+                    autoPlay
+                    muted
+                    className={cx('video')}
+                    videoClass={cx('video')}
+                />
             </div>
         </section>
     );
