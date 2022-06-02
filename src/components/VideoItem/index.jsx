@@ -8,11 +8,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMusic } from '@fortawesome/free-solid-svg-icons';
 import AccountDetail from '../AccountDetail';
 import Button from '../Button';
-import { videos } from '~/assets/videos';
 import Video from '../Video';
 
 const cx = classNames.bind(styles);
-function VideoItem({ className }) {
+function VideoItem({ className, videoSrc }) {
     const classes = cx('wrapper', {
         [className]: className,
     });
@@ -47,10 +46,12 @@ function VideoItem({ className }) {
             </div>
             <div className={cx('video__area')}>
                 <Video
-                    src={videos.errorVideo}
+                    src={videoSrc}
                     placementVolBar={'top'}
-                    autoPlay
+                    loop
                     muted
+                    preload={'true'}
+                    data-ignore
                     className={cx('video')}
                     videoClass={cx('video')}
                 />

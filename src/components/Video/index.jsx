@@ -1,17 +1,33 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Video.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPause, faPlay, faVolumeUp, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
 import { faFlag } from '@fortawesome/free-regular-svg-icons';
+import videoFuncs from './function';
 
 const cx = classNames.bind(styles);
 
 function Video({ className, videoClass, actionClass, placementVolBar = 'top', ...props }) {
+    //Action State
+    const [action, setAction] = useState({
+        isPlay: true,
+        isVolume: false,
+    });
+    //State
+    const [volumeBar, setVolumeBar] = useState(0);
+    const [timeElapsed, setTimeElapsed] = useState(0);
+    const [duration, setDuration] = useState({
+        minutes: 0,
+        seconds: 0,
+    });
+    const [timeVideo, setTimeVideo] = useState(0);
+    const [progressVideo, setProgressVideo] = useState(0);
+
     //Ref
     const videoRef = useRef();
+    const timeRef = useRef();
     const volumeRef = useRef();
-    const progressBar = useRef();
     //classNameCustom
     const classes = cx('wrapper', {
         [className]: className,
@@ -33,14 +49,8 @@ function Video({ className, videoClass, actionClass, placementVolBar = 'top', ..
         report: cx('report'),
     };
 
-    //Action
-
-    const [action, setAction] = useState({
-        isPlay: true,
-        isVolume: false,
-    });
-
     //All function local component
+    //Play button
     const handleTogglePlay = () => {
         if (action.isPlay) {
             setAction((prev) => ({
@@ -56,6 +66,7 @@ function Video({ className, videoClass, actionClass, placementVolBar = 'top', ..
             videoRef.current.play();
         }
     };
+    //Volume
     const handleToggleMuted = () => {
         if (action.isVolume) {
             volumeRef.current.value = 0;
@@ -73,8 +84,8 @@ function Video({ className, videoClass, actionClass, placementVolBar = 'top', ..
             }));
         }
     };
-    const updateProgressBar = () => {
-        progressBar.current.style.width = `${videoRef.current.volume * 100}% `;
+    const updateVolumeBar = () => {
+        setVolumeBar(`${videoRef.current.volume * 100}% `);
     };
     const handleChangeVolume = (e) => {
         videoRef.current.volume = e.target.value;
@@ -90,19 +101,45 @@ function Video({ className, videoClass, actionClass, placementVolBar = 'top', ..
             }));
         }
     };
-    if (videoRef) {
-        if (videoRef?.current?.muted) {
-            videoRef.current.muted = false;
+    //Time
+    const handleInitialVideo = () => {
+        const time = videoFuncs.formatTime(videoRef.current.duration);
+        const milliSecond = Math.round(videoRef.current.duration);
+        setTimeVideo(milliSecond);
+        setDuration({
+            minutes: time.minutes,
+            seconds: time.seconds,
+        });
+    };
+    const handleUpdateTime = () => {
+        const time = videoFuncs.formatTime(videoRef.current.currentTime);
+        const milliSecond = Math.round(videoRef.current.currentTime);
+        setProgressVideo(milliSecond);
+        timeRef.current.value = milliSecond;
+        setTimeElapsed({
+            minutes: time.minutes,
+            seconds: time.seconds,
+        });
+        if (videoRef.current.currentTime === duration) {
+            timeRef.current.value = 0;
         }
-    }
-    //
+    };
+    const updateTimeBar = (e) => {
+        videoRef.current.currentTime = e.target.value;
+    };
     useEffect(() => {
-        updateProgressBar();
-    }, [videoRef.current?.volume]);
-
+        videoFuncs.autoPlayVideo(videoRef.current);
+    }, []);
     return (
         <div className={classes}>
-            <video ref={videoRef} className={videoClasses} loop {...props}></video>
+            <video
+                onTimeUpdate={handleUpdateTime}
+                onLoadedMetadata={handleInitialVideo}
+                onVolumeChange={updateVolumeBar}
+                ref={videoRef}
+                className={videoClasses}
+                {...props}
+            ></video>
 
             <div className={actionClasses.report}>
                 <FontAwesomeIcon icon={faFlag} /> <span> Report</span>
@@ -130,13 +167,37 @@ function Video({ className, videoClass, actionClass, placementVolBar = 'top', ..
                                 step="0.01"
                                 onChange={handleChangeVolume}
                             />
-                            <div ref={progressBar} className={cx('progress')}></div>
+                            <div style={{ width: volumeBar }} className={cx('progress')}></div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className={cx('time__area')}>
+                <div className={cx('video__progress')}>
+                    <progress className={cx('progress__bar')} value={progressVideo} min="0" max={timeVideo}></progress>
+                    <input
+                        className={cx('seek')}
+                        ref={timeRef}
+                        defaultValue={0}
+                        type={'range'}
+                        min={0}
+                        max={timeVideo}
+                        step="1"
+                        onChange={updateTimeBar}
+                    />
+                </div>
+                <div className={cx('time')}>
+                    <time className={cx('time__elapsed')}>
+                        {timeElapsed.minutes}:{timeElapsed.seconds}
+                    </time>
+                    <span>/</span>
+                    <time className={cx('time__duration')}>
+                        {duration.minutes}:{duration.seconds}
+                    </time>
                 </div>
             </div>
         </div>
     );
 }
 
-export default Video;
+export default memo(Video);
