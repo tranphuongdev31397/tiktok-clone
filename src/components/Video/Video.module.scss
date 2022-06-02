@@ -10,6 +10,9 @@
         .report {
             opacity: 1;
         }
+        .time__area {
+            opacity: 1;
+        }
     }
 }
 .video {
@@ -90,10 +93,11 @@
 .progress {
     height: 5px;
     z-index: 13;
+    width: 0%;
     -webkit-appearance: none;
     appearance: none;
     outline: none;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255);
     position: absolute;
     pointer-events: none;
     border-radius: 999px;
@@ -140,4 +144,71 @@
     right: 12px;
     opacity: 0;
     transition: all 0.3s;
+}
+
+//Time
+.time__area {
+    position: absolute;
+    z-index: 10;
+    bottom: 8px;
+    left: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 10px;
+    opacity: 0;
+}
+.time {
+    width: 64px;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+//Video Progress
+.video__progress {
+    position: relative;
+    height: fit-content;
+    &:hover {
+        .seek {
+            display: block;
+        }
+        .progress__bar[value],
+        .progress__bar[value]::-webkit-progress-value {
+            height: 3px;
+        }
+    }
+    & .progress__bar[value],
+    .progress__bar[value]::-webkit-progress-value {
+        display: flex;
+        align-items: center;
+        appearance: none;
+        background-color: white;
+        color: white;
+        height: 2px;
+    }
+
+    & .seek {
+        display: none;
+        transform: translate(-50%, -50%);
+        appearance: none;
+        width: 100%;
+        background-color: transparent;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+    }
+    & .seek::-webkit-slider-thumb {
+        appearance: none;
+        width: 12px;
+        height: 12px; /* Slider handle height */
+        border-radius: 50%;
+        background: #fff; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+    }
 }
