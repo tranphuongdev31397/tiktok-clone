@@ -3,6 +3,9 @@
     border-radius: 10px;
     overflow: hidden;
     width: fit-content;
+    max-height: calc(450px + (100vw - 768px) / 1152 * 100);
+    height: 100%;
+
     &:hover {
         .btn-play {
             opacity: 1;
@@ -16,7 +19,12 @@
     }
 }
 .video {
-    height: calc(450px + (100vw - 768px) / 1152 * 100);
+    border-radius: 10px;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
 }
 .btn {
     outline: none;
@@ -76,7 +84,6 @@
 }
 .slider-box {
     position: relative;
-
     display: flex;
     justify-self: center;
     align-items: center;
@@ -151,18 +158,19 @@
     position: absolute;
     z-index: 10;
     bottom: 8px;
-    left: 20px;
-    width: 100%;
+    left: 10px;
+    gap: 10px;
+    width: calc(100% - 10px);
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    gap: 10px;
     opacity: 0;
     transition: all 0.3s;
 }
 .time {
-    width: 64px;
+    flex: 0 0 64px;
+    max-width: 64px;
     color: white;
     font-size: 10px;
     font-weight: 700;
@@ -173,6 +181,7 @@
 .video__progress {
     position: relative;
     height: fit-content;
+    flex: 1;
     &:hover {
         .seek {
             display: block;
@@ -190,6 +199,7 @@
         background-color: white;
         color: white;
         height: 2px;
+        width: 100%;
     }
 
     & .seek {
