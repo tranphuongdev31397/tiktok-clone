@@ -13,6 +13,7 @@ function Button({
     placementIcon = 'left',
     placementText = 'start',
     classNames,
+    customIcon,
     disable = false,
     rounded = false,
     icon = false,
@@ -67,13 +68,21 @@ function Button({
         <Component className={classes} {...globalProps}>
             <div className={cx('box', 'text-ellipsis', [placementText])}>
                 {icon && placementIcon === 'left' && (
-                    <span className={cx('icon')}>
+                    <span
+                        className={cx('icon', {
+                            [customIcon]: customIcon,
+                        })}
+                    >
                         <FontAwesomeIcon icon={icon} />
                     </span>
                 )}
                 <span className={cx('content', 'text-ellipsis')}>{children}</span>
                 {icon && placementIcon === 'right' && (
-                    <span className={cx('icon')}>
+                    <span
+                        className={cx('icon', {
+                            [customIcon]: customIcon,
+                        })}
+                    >
                         <FontAwesomeIcon icon={icon} />
                     </span>
                 )}
