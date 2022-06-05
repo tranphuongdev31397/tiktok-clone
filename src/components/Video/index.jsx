@@ -126,6 +126,7 @@ function Video({ className, videoClass, actionClass, placementVolBar = 'top', ..
     };
     const updateTimeBar = (e) => {
         videoRef.current.currentTime = e.target.value;
+        setProgressVideo(e.target.value);
     };
     useEffect(() => {
         videoFuncs.autoPlayVideo(videoRef.current);

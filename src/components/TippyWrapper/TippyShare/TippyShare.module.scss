@@ -1,0 +1,61 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.share__item {
+    padding: 8px 12px;
+    margin: 5px 0;
+    cursor: pointer;
+    &:hover {
+        background: var(--gray-shadow);
+    }
+}
+.custom__icon {
+    font-size: 14px;
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.show__more {
+    width: 100%;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+}
+.tippy-box {
+    width: 280px;
+}
+
+//All Css Icon
+.iconFb {
+    background-color: rgb(0, 117, 250);
+}
+.iconEmbed {
+    background-color: rgba(22, 24, 35, 0.75);
+}
+.iconPaperPlane {
+    background-color: rgb(254, 44, 85);
+}
+.iconWhatsApp {
+    background-color: rgb(37, 211, 102);
+}
+.iconLink {
+    background-color: rgb(254, 44, 85);
+}
+.iconTwitter {
+    background-color: rgb(29, 161, 242);
+}
+.iconLinkedin {
+    background-color: rgb(29, 161, 242);
+}

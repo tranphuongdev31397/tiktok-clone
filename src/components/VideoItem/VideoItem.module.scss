@@ -8,6 +8,7 @@
     justify-content: flex-start;
     gap: 10px;
     position: relative;
+    margin-bottom: 12px;
     & .avatar {
         width: 56px;
         height: 56px;
@@ -54,4 +55,33 @@
 
 .icon {
     margin-right: 4px;
+}
+.video__area {
+    height: calc(450px + ((100vw - 768px) / 1152) * 100);
+}
+.video__container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.video__action {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.animation {
+    animation: changeColor 0.5s normal ease-in-out;
+    color: var(--primary);
+}
+@keyframes changeColor {
+    0% {
+        font-size: 18px;
+    }
+    50% {
+        font-size: 22px;
+    }
+    100% {
+        font-size: 18px;
+    }
 }

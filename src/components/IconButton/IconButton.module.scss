@@ -1,0 +1,35 @@
+.wrapper {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.icon__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray-shadow);
+    height: 40px;
+    width: 40px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+    &:hover {
+        background-color: var(--gray-solid);
+    }
+}
+.icon {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+.number {
+    color: var(--text-color-thin);
+    font-size: 12px;
+    line-height: 17px;
+    text-align: center;
+    font-weight: 700;
+}

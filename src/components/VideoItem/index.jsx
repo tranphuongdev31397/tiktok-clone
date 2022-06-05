@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './VideoItem.module.scss';
 import Image from '../Image';
 import { images } from '~/assets/images';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMusic } from '@fortawesome/free-solid-svg-icons';
+import { faCommentDots, faHeart, faMusic, faShare } from '@fortawesome/free-solid-svg-icons';
 import AccountDetail from '../AccountDetail';
 import Button from '../Button';
 import Video from '../Video';
+import IconButton from '../IconButton';
+import TippyShare from '../TippyWrapper/TippyShare';
 
 const cx = classNames.bind(styles);
 function VideoItem({ className, videoSrc }) {
     const classes = cx('wrapper', {
         [className]: className,
     });
+    const [isAnimation, setIsAnimation] = useState(false);
+
     return (
         <section className={classes}>
             <div className={cx('video__header')}>
@@ -43,18 +47,36 @@ function VideoItem({ className, videoSrc }) {
                 <Button typeBtn="outline" size="small" placementText="center" classNames={cx('follow__button')}>
                     Follow
                 </Button>
+                <Button typeBtn="shadow" size="small" placementText="center" classNames={cx('follow__button')}>
+                    Following
+                </Button>
             </div>
-            <div className={cx('video__area')}>
-                <Video
-                    src={videoSrc}
-                    placementVolBar={'top'}
-                    loop
-                    muted
-                    preload={'true'}
-                    data-ignore
-                    className={cx('video')}
-                    videoClass={cx('video')}
-                />
+            <div className={cx('video__container')}>
+                <div className={cx('video__area')}>
+                    <Video
+                        src={videoSrc}
+                        placementVolBar={'top'}
+                        loop
+                        preload={'true'}
+                        data-ignore
+                        videoClass={cx('video')}
+                    />
+                </div>
+                <div className={cx('video__action')}>
+                    <IconButton
+                        icon={<FontAwesomeIcon icon={faHeart} />}
+                        number={21300}
+                        animation={isAnimation ? cx('animation') : ''}
+                        onClick={() => setIsAnimation(!isAnimation)}
+                    />
+                    <Link to="/following" className="link">
+                        <IconButton icon={<FontAwesomeIcon icon={faCommentDots} />} number={21300} />
+                    </Link>
+
+                    <TippyShare>
+                        <IconButton icon={<FontAwesomeIcon icon={faShare} />} number={21300} />
+                    </TippyShare>
+                </div>
             </div>
         </section>
     );
