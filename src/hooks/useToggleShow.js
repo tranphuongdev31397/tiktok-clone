@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function useToggleShow(initialArr, initShow = false, defaultShow = 5) {
-    const spliceArr = [...initialArr];
-    spliceArr.splice(defaultShow);
-    const [latestArr, setLatestArr] = useState(initShow ? initialArr : spliceArr);
+    const defaultArr = initialArr;
+    const spliceArr = initialArr.slice(0, defaultShow);
+    const [latestArr, setLatestArr] = useState(initShow ? defaultArr : spliceArr);
+
     const [isShow, setIsShow] = useState(initShow);
     useEffect(() => {
         if (isShow) {
-            setLatestArr(initialArr);
+            setLatestArr(defaultArr);
         } else {
             setLatestArr(spliceArr);
         }

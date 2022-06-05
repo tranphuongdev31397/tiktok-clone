@@ -120,9 +120,9 @@ function SideBar() {
                 </SideBox>
             )}
             <SideBox title={'Suggested accounts'} customEmpty="Text empty">
-                {suggestedAccounts?.map((acc) => {
+                {suggestedAccounts?.map((acc, idx) => {
                     return (
-                        <AccountDetail>
+                        <AccountDetail key={idx}>
                             <AccountItem className={cx('account__item')} />
                         </AccountDetail>
                     );

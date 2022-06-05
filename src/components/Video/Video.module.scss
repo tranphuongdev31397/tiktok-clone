@@ -1,0 +1,225 @@
+.wrapper {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    width: fit-content;
+    max-height: calc(450px + (100vw - 768px) / 1152 * 100);
+    height: 100%;
+
+    &:hover {
+        .btn-play {
+            opacity: 1;
+        }
+        .report {
+            opacity: 1;
+        }
+        .time__area {
+            opacity: 1;
+        }
+    }
+}
+.video {
+    border-radius: 10px;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+.btn {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    z-index: 10;
+    &.btn-play {
+        bottom: 26px;
+        left: 12px;
+        cursor: pointer;
+        opacity: 0;
+        transition: all 0.3s;
+    }
+}
+
+.volume {
+    position: absolute;
+    bottom: 26px;
+    right: 12px;
+    z-index: 10;
+}
+.slider-area {
+    width: 80px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
+    background: rgba(22, 24, 35, 0.34);
+    position: absolute;
+    padding: 8px;
+    position: relative;
+    &.top {
+        left: 50%;
+        top: -80%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+    }
+    &.bottom {
+        left: 50%;
+        top: 180%;
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+    &.right {
+        left: 180%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    &.left {
+        left: -80%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-0deg);
+    }
+}
+.slider-box {
+    position: relative;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.slider {
+    z-index: 10;
+    height: 5px;
+    appearance: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    outline: none;
+    width: 100%;
+    border-radius: 999px;
+}
+.progress {
+    height: 5px;
+    z-index: 13;
+    width: 0%;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    background-color: rgba(255, 255, 255);
+    position: absolute;
+    pointer-events: none;
+    border-radius: 999px;
+    left: 0;
+    top: 0;
+}
+
+.slider::-webkit-slider-thumb {
+    z-index: 11;
+    appearance: none;
+    width: 12px;
+    height: 12px; /* Slider handle height */
+    border-radius: 50%;
+    background: #fff; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.volume-area {
+    position: relative;
+    height: 40px;
+    width: 40px;
+}
+.volume-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    padding: 20px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.volume:hover .slider-area {
+    display: flex;
+}
+
+.report {
+    cursor: pointer;
+    color: #fff;
+    z-index: 10;
+    position: absolute;
+    top: 26px;
+    right: 12px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+//Time
+.time__area {
+    position: absolute;
+    z-index: 10;
+    bottom: 8px;
+    left: 10px;
+    gap: 10px;
+    width: calc(100% - 10px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.time {
+    flex: 0 0 64px;
+    max-width: 64px;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+//Video Progress
+.video__progress {
+    position: relative;
+    height: fit-content;
+    flex: 1;
+    &:hover {
+        .seek {
+            display: block;
+        }
+        .progress__bar[value],
+        .progress__bar[value]::-webkit-progress-value {
+            height: 3px;
+        }
+    }
+    & .progress__bar[value],
+    .progress__bar[value]::-webkit-progress-value {
+        display: flex;
+        align-items: center;
+        appearance: none;
+        background-color: white;
+        color: white;
+        height: 2px;
+        width: 100%;
+    }
+
+    & .seek {
+        display: none;
+        transform: translate(-50%, -50%);
+        appearance: none;
+        width: 100%;
+        background-color: transparent;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+    }
+    & .seek::-webkit-slider-thumb {
+        appearance: none;
+        width: 12px;
+        height: 12px; /* Slider handle height */
+        border-radius: 50%;
+        background: #fff; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+    }
+}

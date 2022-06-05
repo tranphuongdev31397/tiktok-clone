@@ -6,7 +6,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import Image from '~/components/Image';
 import { Link } from 'react-router-dom';
 import routesConfig from '~/config/routes';
-import { fakeUser } from '~/assets/images';
+import { fakeUser } from '~/common/data';
 
 const cx = classNames.bind(styles);
 function AccountItem({ user = fakeUser, className }, ref) {

@@ -6,7 +6,8 @@
     --black: #000;
     --black-1: rgba(22, 24, 35, 0.75);
     --white: #fff;
-
+    --gray-shadow: rgba(22, 24, 35, 0.06);
+    --gray-solid: rgba(22, 24, 35, 0.1);
     //var header
     --header-height: 6rem;
     --header-search-width-input: 85%;
@@ -61,6 +62,7 @@ html {
 }
 body {
     font-family: 'ProximaNova', sans-serif;
+    font-weight: 400;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
@@ -84,13 +86,18 @@ body {
     align-items: center;
     justify-content: center;
 }
+.flex-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 .link {
     font-weight: 700;
     text-decoration: none;
     cursor: pointer;
     color: #000;
     &:hover {
-        text-decoration: underline;
+        text-decoration: none;
     }
 }
 
@@ -102,4 +109,16 @@ body {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.text__default {
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: ProximaNova;
+}
+.text600 {
+    font-weight: 600;
+}
+.text700 {
+    font-weight: 700;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import Logo from '~/components/Logo';
@@ -13,8 +13,10 @@ import Search from '../Search';
 import Image from '~/components/Image';
 import routesConfig from '~/config/routes';
 import { currentUser } from '~/common/constant';
+import Popup from '~/components/Popup';
 
 function Header() {
+    const [isShow, setIsShow] = useState(false);
     const cx = classNames.bind(styles);
     return (
         <header className={cx('header')}>
@@ -33,7 +35,12 @@ function Header() {
                     </Button>
 
                     {!currentUser && (
-                        <Button typeBtn={'primary'} Component="button" placementText="center">
+                        <Button
+                            typeBtn={'primary'}
+                            Component="button"
+                            placementText="center"
+                            onClick={() => setIsShow(true)}
+                        >
                             Login
                         </Button>
                     )}
@@ -57,6 +64,7 @@ function Header() {
                     </div>
                 </div>
             </div>
+            <Popup stateIsShow={[isShow, setIsShow]}>s</Popup>
         </header>
     );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import classNames from 'classnames/bind';
 import styles from './MenuList.module.scss';
@@ -17,7 +17,7 @@ import routesConfig from '~/config/routes';
 import { currentUser } from '~/common/constant';
 
 const cx = classNames.bind(styles);
-function MenuList({ setStep }) {
+function MenuList({ setStep, setIsShow }) {
     const defaultMenuList = [
         {
             title: 'English',
@@ -39,7 +39,9 @@ function MenuList({ setStep }) {
             title: 'Keyboard and shortcuts',
             icon: faKeyboard,
             component: 'a',
-            props: {},
+            props: {
+                onClick: () => setIsShow(true),
+            },
         },
     ];
     const userMenuList = [
@@ -75,32 +77,34 @@ function MenuList({ setStep }) {
     }
 
     return (
-        <div className={cx('wrapper', 'menu__list')}>
-            {menuList.map((item, idx) => {
-                return (
+        <>
+            <div className={cx('wrapper', 'menu__list')}>
+                {menuList.map((item, idx) => {
+                    return (
+                        <Button
+                            key={idx}
+                            typeBtn={'text'}
+                            Component={item.component}
+                            classNames={cx('menu__item')}
+                            {...item.props}
+                            icon={item.icon}
+                        >
+                            {item.title}
+                        </Button>
+                    );
+                })}
+                {currentUser && (
                     <Button
-                        key={idx}
-                        typeBtn={'text'}
-                        Component={item.component}
-                        classNames={cx('menu__item')}
-                        {...item.props}
-                        icon={item.icon}
+                        typeBtn="text"
+                        Component="a"
+                        classNames={cx('menu__item', 'item__logout')}
+                        icon={faArrowRightFromBracket}
                     >
-                        {item.title}
+                        Log out
                     </Button>
-                );
-            })}
-            {currentUser && (
-                <Button
-                    typeBtn="text"
-                    Component="a"
-                    classNames={cx('menu__item', 'item__logout')}
-                    icon={faArrowRightFromBracket}
-                >
-                    Log out
-                </Button>
-            )}
-        </div>
+                )}
+            </div>
+        </>
     );
 }
 
