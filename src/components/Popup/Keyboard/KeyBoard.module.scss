@@ -1,5 +1,6 @@
 .keyboard__popup {
     width: 400px !important;
+    padding: 40px;
 }
 .keyboard__item {
     display: flex;
@@ -20,4 +21,11 @@
     width: 24px;
     height: 24px;
     padding: 0px;
+}
+
+.icon__box {
+    background-color: transparent;
+    &:hover {
+        background-color: transparent;
+    }
 }
