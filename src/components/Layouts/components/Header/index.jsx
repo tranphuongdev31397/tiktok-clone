@@ -13,7 +13,6 @@ import Search from '../Search';
 import Image from '~/components/Image';
 import routesConfig from '~/config/routes';
 import { currentUser } from '~/common/constant';
-import Popup from '~/components/Popup';
 import LoginPopup from '~/components/Popup/LoginPopup';
 
 function Header() {
