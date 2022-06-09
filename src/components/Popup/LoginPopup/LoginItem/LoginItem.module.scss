@@ -1,0 +1,15 @@
+.login__item {
+    display: flex;
+    justify-content: flex-start;
+    border: 1px solid var(--line-color);
+    margin-bottom: 12px;
+    cursor: pointer;
+    & .icon {
+        height: 40px;
+        width: 40px;
+        border-right: 1px solid var(--line-color);
+    }
+    & .text {
+        flex: 1;
+    }
+}

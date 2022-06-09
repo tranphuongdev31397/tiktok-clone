@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
@@ -25,7 +25,7 @@ function Button({
     };
     //Button Element
 
-    const ElmButtons = ['a', 'button', Link, 'div', 'span', 'p'];
+    const ElmButtons = ['a', 'button', Link, NavLink, 'div', 'span', 'p'];
 
     if (!ElmButtons.includes(Component)) {
         Component = 'button';

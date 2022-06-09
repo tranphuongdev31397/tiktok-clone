@@ -13,7 +13,7 @@ function DefaultContent({ className, title, children }) {
             })}
         >
             <p className={cx('title', 'text-default')}>{title}</p>
-            <div className={cx('content')}>{children}</div>
+            {children}
         </div>
     );
 }

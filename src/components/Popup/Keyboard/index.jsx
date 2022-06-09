@@ -1,17 +1,17 @@
 import React from 'react';
 import Popup from '..';
 import DefaultContent from '../DefaultContent';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './KeyBoard.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUps } from '@fortawesome/free-brands-svg-icons';
-import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
 function KeyBoardPopup({ stateIsShow }) {
     return (
-        <Popup stateIsShow={stateIsShow}>
+        <Popup stateIsShow={stateIsShow} iconBox={cx('icon__box')}>
             <DefaultContent className={cx('keyboard__popup')} title={'Keyboard shortcuts'}>
                 <div className={cx('keyboard__item')}>
                     <span>Go to previous video</span>

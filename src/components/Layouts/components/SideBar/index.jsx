@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './SideBar.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import routesConfig from '~/config/routes';
 import { faHashtag, faHome, faMusic, faUserGroup, faVideo } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
@@ -9,11 +9,12 @@ import SideBox from './SideBox';
 import AccountItem from '~/components/AccountItem';
 import AccountDetail from '~/components/AccountDetail';
 import useToggleShow from '~/hooks/useToggleShow';
-import { currentUser as current, currentUser } from '~/common/constant';
+import { currentUser } from '~/common/constant';
 
 const cx = classNames.bind(styles);
 function SideBar() {
-    const [activeId, setActiveId] = useState(0);
+    const location = useLocation();
+    const [activeId, setActiveId] = useState(location.pathname);
     const [initSuggestAccounts, setInitSuggestAccounts] = useState([]);
 
     const [suggestedAccounts, isShow, setIsShow] = useToggleShow(initSuggestAccounts);
@@ -96,8 +97,7 @@ function SideBar() {
                             icon={item.icon}
                             Component={item.component}
                             typeBtn={'text'}
-                            classNames={cx('navbar__item', `${activeId === idx && 'active'}`)}
-                            onClick={() => setActiveId(idx)}
+                            classNames={cx('navbar__item', `${location.pathname === item.props.to && 'active'}`)}
                             {...item.props}
                         >
                             {item.title}

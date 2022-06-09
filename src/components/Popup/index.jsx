@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Popup.module.scss';
 import IconButton from '../IconButton';
@@ -7,10 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const cx = classNames.bind(styles);
 
-function Popup({ classContent, stateIsShow, children, ...props }) {
+function Popup({ classContent, stateIsShow, iconBox, children, ...props }) {
     //stateIsShow từ useState bên ngoài
     const [isShow, setIsShow] = stateIsShow;
-
     return (
         <section className={cx('wrapper', isShow ? 'show' : 'hide')} {...props}>
             <div className={cx('container', isShow ? 'show' : 'hide')}>
@@ -24,7 +23,9 @@ function Popup({ classContent, stateIsShow, children, ...props }) {
                     </div>
 
                     <IconButton
-                        classIconBox={cx('icon__box')}
+                        classIconBox={cx({
+                            [iconBox]: iconBox,
+                        })}
                         className={cx('icon-x')}
                         onClick={() => setIsShow(false)}
                         icon={<FontAwesomeIcon icon={faXmark} />}

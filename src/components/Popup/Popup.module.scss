@@ -6,11 +6,16 @@
     width: 100vw;
     height: 100vh;
     overflow: auto;
-    transition-delay: 3000ms;
     &.show {
+        transition-delay: 3000ms;
     }
     &.hide {
+        transition-delay: 3000ms;
+
         pointer-events: none;
+    }
+    &.hide.d-none {
+        display: none;
     }
 }
 
@@ -59,7 +64,4 @@
     position: absolute;
     right: 10px;
     top: 10px;
-    & .icon__box {
-        background-color: transparent;
-    }
 }

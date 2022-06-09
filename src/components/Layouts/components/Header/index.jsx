@@ -13,7 +13,7 @@ import Search from '../Search';
 import Image from '~/components/Image';
 import routesConfig from '~/config/routes';
 import { currentUser } from '~/common/constant';
-import Popup from '~/components/Popup';
+import LoginPopup from '~/components/Popup/LoginPopup';
 
 function Header() {
     const [isShow, setIsShow] = useState(false);
@@ -64,7 +64,7 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <Popup stateIsShow={[isShow, setIsShow]}>s</Popup>
+            <LoginPopup stateIsShow={[isShow, setIsShow]}></LoginPopup>
         </header>
     );
 }
