@@ -13,7 +13,7 @@
     }
     &.disable {
         opacity: 0.5;
-        cursor: no-drop;
+        cursor: not-allowed;
         user-select: none;
     }
 }

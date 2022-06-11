@@ -4,12 +4,20 @@
     border: 1px solid var(--line-color);
     margin-bottom: 12px;
     cursor: pointer;
-    & .icon {
+    & .icon__box {
         height: 40px;
         width: 40px;
         border-right: 1px solid var(--line-color);
     }
+    & .icon {
+        width: 20px;
+        height: 20px;
+    }
     & .text {
         flex: 1;
     }
+}
+.icon > svg {
+    max-width: 20px;
+    max-height: 20px;
 }
