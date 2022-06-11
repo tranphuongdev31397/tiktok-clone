@@ -8,6 +8,9 @@
     --white: #fff;
     --gray-shadow: rgba(22, 24, 35, 0.06);
     --gray-solid: rgba(22, 24, 35, 0.1);
+    --color-input: rgba(22, 24, 35, 0.06);
+    --color-input-hover: rgba(22, 24, 35, 0.1);
+
     //var header
     --header-height: 6rem;
     --header-search-width-input: 85%;
@@ -86,6 +89,11 @@ body {
     align-items: center;
     justify-content: center;
 }
+.inline-center {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 .flex-start {
     display: flex;
     align-items: center;
@@ -116,9 +124,15 @@ body {
     font-weight: 400;
     font-family: ProximaNova;
 }
-.text600 {
+.f600 {
     font-weight: 600;
 }
-.text700 {
+.f700 {
     font-weight: 700;
+}
+
+.reset-input {
+    outline: none;
+    border: none;
+    caret-color: var(--primary);
 }
