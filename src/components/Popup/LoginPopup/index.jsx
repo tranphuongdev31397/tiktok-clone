@@ -5,14 +5,14 @@ import LoginTemplate from './Templates/LoginTemplate';
 import SignUpTemplate from './Templates/SignupTemplate';
 
 function LoginPopup({ stateIsShow }) {
-    const [isShow] = stateIsShow;
+    const [iShowLogin, setIsShowLogin] = stateIsShow;
     const [typeTemp, setTypeTemp] = useState('login');
 
     useEffect(() => {
-        if (!isShow) {
+        if (!iShowLogin) {
             setTypeTemp('login');
         }
-    }, [isShow]);
+    }, [iShowLogin]);
 
     const renderTemplate = (type) => {
         switch (type) {
@@ -24,7 +24,7 @@ function LoginPopup({ stateIsShow }) {
                 throw new Error('This type is not match');
         }
     };
-    return <Popup stateIsShow={stateIsShow}>{renderTemplate(typeTemp)}</Popup>;
+    return <Popup stateIsShow={[iShowLogin, setIsShowLogin]}>{renderTemplate(typeTemp)}</Popup>;
 }
 
 export default LoginPopup;

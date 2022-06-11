@@ -1,0 +1,41 @@
+.wrapper {
+    width: 100%;
+}
+.container {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 320px;
+    height: 314px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.text__box {
+    margin-top: 16px;
+    & p {
+        margin: 0 0 4px;
+        font-size: 14px;
+        line-height: 20px;
+        color: #161823;
+    }
+}
+.icon-scan {
+    display: unset;
+    vertical-align: text-top;
+}
+
+.guide {
+    cursor: pointer;
+    width: fit-content;
+    margin: 20px auto;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.image__guide {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
