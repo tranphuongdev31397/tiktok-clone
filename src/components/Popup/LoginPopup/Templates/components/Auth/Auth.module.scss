@@ -12,7 +12,11 @@
         text-decoration: underline;
     }
 }
-
+.input__container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
 .input__box {
     position: relative;
     border-radius: 4px;
@@ -119,4 +123,68 @@
     & span {
         margin: 5px 4px;
     }
+}
+
+//SIGN UP
+.signup {
+    .title {
+        margin-top: 16px;
+    }
+}
+
+.signup__select {
+    width: 33%;
+    & .input__item {
+        border: transparent;
+    }
+}
+
+.checked__area {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+
+    & .input__check {
+        width: 5%;
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & input {
+            cursor: pointer;
+            opacity: 0;
+            width: 24px;
+            height: 24px;
+        }
+        & .custom__checked {
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            border-radius: 2px;
+            border: 1.5px solid rgba(22, 24, 35, 0.12);
+            color: white;
+            pointer-events: none;
+        }
+        .custom__checked.checked {
+            background-color: var(--primary);
+        }
+    }
+    & span {
+        flex: 1;
+    }
+}
+
+//Common
+.text__small {
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 400;
+    font-size: 12px;
 }

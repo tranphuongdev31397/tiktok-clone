@@ -52,3 +52,25 @@
     max-width: 20px;
     max-height: 20px;
 }
+
+.show__button {
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.footer__signup {
+    font-family: SofiaPro;
+    font-weight: 400;
+    font-size: 12px !important;
+    width: 420px;
+    margin: 0 auto;
+    margin-bottom: 12px;
+    text-align: center;
+    color: rgba(22, 24, 35, 0.5);
+}
+.footer__text {
+    font-family: SofiaPro;
+    text-decoration: none;
+    color: rgb(22, 24, 35);
+}

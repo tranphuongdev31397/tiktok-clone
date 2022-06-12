@@ -8,7 +8,7 @@ import classNames from 'classnames/bind';
 import styles from '../../Auth.module.scss';
 
 const cx = classNames.bind(styles);
-function LoginWithPhone({ onGoNextStep = null, textButton }) {
+function LoginWithPhone({ onGoNextStep = null, textButton, isSignUp = false }) {
     const [isSend, setIsSend] = useState(false);
     const [loginWithCode, setLoginWithCode] = useState(true);
     const [isShowPass, setIsShowPass] = useState(false);
@@ -56,7 +56,9 @@ function LoginWithPhone({ onGoNextStep = null, textButton }) {
                     </div>
                 </div>
             )}
-            {loginWithCode ? (
+            {isSignUp ? (
+                <></>
+            ) : loginWithCode ? (
                 <span className={cx('link', 'text__default', 'optional')} onClick={handleChangeTypeLogin}>
                     Login with Password
                 </span>
