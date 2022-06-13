@@ -1,0 +1,38 @@
+.tippy-box {
+    width: 300px;
+}
+.custom__wrapper {
+    max-height: 200px;
+}
+
+.select__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & .select {
+        width: 80%;
+    }
+    & .select__icon {
+        width: 10%;
+    }
+}
+
+.list {
+    margin: 5px 0;
+    & .list__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 12px;
+        color: #161823;
+        font-size: 13px;
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(22, 24, 35, 0.04);
+        }
+    }
+}
+
+.list__item.active {
+    background-color: rgba(22, 24, 35, 0.04);
+}

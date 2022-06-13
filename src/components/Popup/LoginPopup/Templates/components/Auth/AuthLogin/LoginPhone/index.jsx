@@ -6,6 +6,7 @@ import { faEyeSlash, faEye } from '@fortawesome/free-regular-svg-icons';
 
 import classNames from 'classnames/bind';
 import styles from '../../Auth.module.scss';
+import SelectBox from '~/components/SelectBox';
 
 const cx = classNames.bind(styles);
 function LoginWithPhone({ onGoNextStep = null, textButton, isSignUp = false }) {
@@ -19,11 +20,9 @@ function LoginWithPhone({ onGoNextStep = null, textButton, isSignUp = false }) {
     return (
         <>
             <div className={cx('input__box')}>
-                <select className={cx('input__item', 'input__select', 'reset-input')}>
-                    <option value={'+84'}>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                </select>
+                <div className={cx('input__select')}>
+                    <SelectBox className={cx('input__item')} />
+                </div>
                 <input className={cx('reset-input', 'input__item')} placeholder="Phone number" name="phoneNumber" />
             </div>
             {loginWithCode ? (
